@@ -5,20 +5,18 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <>
-      <header className="lg:px-16 px-6 flex flex-wrap items-center lg:py-0 py-2">
+      <header className="lg:px-16 px-6 flex flex-wrap items-center lg:py-0 py-2 border-b-2 border-blue-500">
         <div className="flex-1 flex justify-between items-center">
-          <a href="#">
             <div className="flex justify-center items-center">
               <img
                 className="w-12"
-                src="https://assets.leetcode.com/static_assets/public/webpack_bundles/images/logo.c36eaf5e6.svg"
+                src="https://freesvg.org/img/Soma-9-2016080921.png"
                 alt=""
               />
             </div>
-          </a>
         </div>
 
-        <label for="menu-toggle" className="pointer-cursor lg:hidden block">
+        <label className="pointer-cursor lg:hidden block">
           <svg
             className="fill-current text-gray-900"
             xmlns="http://www.w3.org/2000/svg"
@@ -39,20 +37,20 @@ const Header = () => {
           <nav>
             <ul className="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0">
               <li>
-                <a
-                  className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400"
+                <span
+                  className="lg:p-4 py-3 px-0 block border-b-2 border-transparent transition duration-200 ease-in-out hover:border-blue-500"
                   href="#"
                 >
                   <Link to="/home">View</Link>
-                </a>
+                </span>
               </li>
               <li>
-                <a
-                  className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400"
+                <span
+                  className="lg:p-4 py-3 px-0 block border-b-2 border-transparent transition duration-200 ease-in-out hover:border-blue-500"
                   href="#"
                 >
                   <Link to="/upload">Upload</Link>
-                </a>
+                </span>
               </li>
             </ul>
           </nav>
