@@ -1,9 +1,17 @@
 require('dotenv').config();
 // Express config
+const path = require('path');
 const express = require('express')
 const app = express();
+const morgan = require('morgan');
+const cors = require('cors');
+const bodyParser = require('body-parser')
 app.set('port', process.env.PORT || 3000);
 app.use(express.json());
+app.use(morgan('dev'));
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.static(path.join(__dirname, 'public')))
 // Requirements
 const { saveImage, getImages, getOneImage, deleteImage, updateImage } = require('./controllers/image.controller')
 const { upload, deleteFile } = require('./controllers/upload.controller')

@@ -6,12 +6,20 @@ imageCtr.getOneImage = async (req, res) => {
   res.json(await Image.findById(id));
 }
 imageCtr.getImages = async (req, res) => {
-  res.json(await Image.find());
+  const response = await Image.find();
+  console.log(response);
+  res.json(response);
 }
 imageCtr.saveImage = async (req, res) => {
-  const { name, slug, route } = req.body;
-  const newImage = new Image({ name, slug, route });
-  res.json(await newImage.save());
+  let response = {
+    data: []
+  }
+  for(let data of req.body.photos){
+    const { name, slug, route } = data;
+    const newImage = new Image({ name, slug, route });
+    response.data.push(await newImage.save());
+  }
+  res.json(response);
 }
 imageCtr.deleteImage = async (req, res, next) => {
   id = req.params.id
