@@ -37,10 +37,14 @@ const Home = () => {
       });
   }
 
-  useEffect(() => {
+  const fetchGetImages = async () => {
     fetch('http://localhost:3003/get-images')
     .then(response => response.json())
     .then(data => setResponse(data));
+  }
+
+  useEffect(() => {
+    fetchGetImages();
   }, [])
 
 
@@ -68,6 +72,7 @@ const Home = () => {
               file={el} 
               toastSuccessDelete={toastSuccessDelete}
               toastErrorDelete={toastErrorDelete}
+              fetchGetImages={fetchGetImages}
             >
             </Card>))
           }

@@ -1,6 +1,6 @@
 import React from "react";
 
-const DropDown = ({id, toastErrorDelete, toastSuccessDelete}) => {
+const DropDown = ({id, toastErrorDelete, toastSuccessDelete, fetchGetImages}) => {
 
     const handleDelete = async () => {
         const options = {method: 'DELETE'};
@@ -8,6 +8,7 @@ const DropDown = ({id, toastErrorDelete, toastSuccessDelete}) => {
         fetch(`http://localhost:3003/delete-image/${id}`, options)
         .then(response => response.json())
         .then(response => toastSuccessDelete())
+        .then(()=> fetchGetImages())
         .catch(err => toastErrorDelete());
     }
     
