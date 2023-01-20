@@ -5,7 +5,7 @@ import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 
 import DropDown from "../components/DropDown";
 
-const Card = ({file}) => {
+const Card = ({file, toastErrorDelete, toastSuccessDelete}) => {
 
     const [open,setOpen] = useState(false);
 
@@ -16,7 +16,7 @@ const Card = ({file}) => {
             <div className="h-5/6">
                 <img
                 className="rounded-t-lg h-full w-full bg-cover bg-no-repeat "
-                src={`http://localhost:3002/${file.route.split('public/')[1]}`}
+                src={`http://localhost:3003/${file.route.split('public/')[1]}`}
                 alt=""
                 />
             </div>
@@ -27,7 +27,7 @@ const Card = ({file}) => {
               <div className="cursor-pointer" onClick={() => setOpen(!open)}>
                 <FontAwesomeIcon icon={faEllipsisVertical}/>
                 {open && (
-                    <DropDown id={file._id}></DropDown>
+                    <DropDown id={file._id} toastErrorDelete={toastErrorDelete} toastSuccessDelete={toastSuccessDelete}></DropDown>
                 )}
               </div>
 

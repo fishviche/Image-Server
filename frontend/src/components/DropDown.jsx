@@ -1,17 +1,14 @@
 import React from "react";
 
-import { useState, useEffect } from "react";
-
-const DropDown = ({id}) => {
-
+const DropDown = ({id, toastErrorDelete, toastSuccessDelete}) => {
 
     const handleDelete = async () => {
         const options = {method: 'DELETE'};
 
-        fetch(`http://localhost:3002/delete-image/${id}`, options)
+        fetch(`http://localhost:3003/delete-image/${id}`, options)
         .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
+        .then(response => toastSuccessDelete())
+        .catch(err => toastErrorDelete());
     }
     
     return (

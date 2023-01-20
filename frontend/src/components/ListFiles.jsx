@@ -4,21 +4,21 @@ import ItemListFile from "./ItemListFile";
 const ListFiles = ({file}) => {
   return (
     <>
-      <table className="mx-auto mt-10">
+      <table className="mx-auto mt-10 table-fixed">
         <thead className="bg-white border border-blue-500">
           <tr>
             <th
-              className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              className="text-sm font-medium text-gray-900 px-6 py-4 text-center"
             >
               #
             </th>
             <th
-              className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              className="text-sm font-medium text-gray-900 px-6 py-4 text-center w-40"
             >
               Name
             </th>
             <th
-              className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              className="text-sm font-medium text-gray-900 px-6 py-4 text-center"
             >
               Action
             </th>
@@ -27,7 +27,7 @@ const ListFiles = ({file}) => {
         <tbody>
             {(file.length == 0) ? (
             <tr className="bg-gray-100 border-b">
-              <td className="px-6 py-3 whitespace-nowrap text-sm font-medium text-gray-900 text-center" colSpan={3}>
+              <td className="px-6 py-3 text-sm font-medium text-gray-900 text-center" colSpan={3}>
                 No files uploaded yet
               </td>
             </tr>) : (file.map((el,index) => (
